@@ -1,10 +1,20 @@
 <h2>User Details</h2>
+<hr>
 
-<ul>
+<ul *ngIf="userItem">
     <li>
-        <strong>ID:</strong>
+        <strong>ID:</strong> {{ userItem.userId }}
     </li>
     <li>
-        <strong></strong>
+        <strong>Username:</strong> {{ userItem.username }}
+    </li>
+    <li>
+        <strong>Email:</strong> {{ userItem.email }}
+    </li>
+    <li>
+        <strong>Creation Date:</strong> {{ userItem.creationDate | date: 'dd/MM/yyyy'}}
+    </li>
+    <li>
+        <strong>Is Active:</strong> {{ userItem.isActive }}
     </li>
 </ul>

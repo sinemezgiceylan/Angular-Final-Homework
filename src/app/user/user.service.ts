@@ -155,4 +155,10 @@ export class UserService {
   getUserList() : User[] {
     return this.users;
   }
+
+  getUserItem(userId: number): User | undefined {
+    return this.users.find((user: User, index: number) => {
+      return user.userId === userId;
+    })
+  }
 }

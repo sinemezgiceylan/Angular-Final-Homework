@@ -4,8 +4,6 @@
             <tr>
                 <th>ID</th>
                 <th>Username</th>
-                <th>Email</th>
-                <th>Creation Date</th>
                 <th>isActive</th>
                 <th>Details</th>
             </tr>
@@ -14,8 +12,6 @@
             <tr *ngFor="let userItem of userList | slice: (pageIndex * pageSize) : ((pageIndex * pageSize) + pageSize)">
                 <td>{{ userItem.userId }}</td>
                 <td>{{ userItem.username}}</td>
-                <td>{{ userItem.email}}</td>
-                <td>{{ userItem.creationDate | date: 'dd/MM/yyyy'}}</td>
                 <td>{{ userItem.isActive}}</td>
                 <td>
                     <a [routerLink]="['/user-details' , userItem.userId]">Details</a>
