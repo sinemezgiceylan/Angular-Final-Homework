@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -16,6 +17,7 @@ export class UserListComponent {
   totalPage: number = 1;
 
   constructor(
+    private route: Router,
     private userService: UserService
     ) {
     this.userList = this.userService.getUserList();
@@ -31,6 +33,10 @@ export class UserListComponent {
       totalPage++;
     }
     this.totalPage = totalPage;
+  }
+
+  handleNewUserItemClicked() {
+    this.route.navigateByUrl('/create-user')
   }
 
   handlePreviousPageButton() {

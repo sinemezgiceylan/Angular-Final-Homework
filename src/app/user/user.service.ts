@@ -156,6 +156,11 @@ export class UserService {
     return this.users;
   }
 
+  addUserItem(userItem: User) : void {
+    userItem.userId = this.users.length + 1;
+    this.users.push(userItem);
+  }
+
   getUserItem(userId: number): User | undefined {
     return this.users.find((user: User, index: number) => {
       return user.userId === userId;
