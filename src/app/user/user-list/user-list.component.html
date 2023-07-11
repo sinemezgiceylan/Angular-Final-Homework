@@ -1,7 +1,7 @@
 
 <div class="table-conteiner">
     <div>
-        <button type="button" (click)="handleNewUserItemClicked()">A</button>
+        <button type="button" (click)="handleNewUserItemClicked()">Add User</button>
     </div>
     <table>
         <thead>
@@ -20,6 +20,10 @@
                 <td>
                     <a [routerLink]="['/user-details' , userItem.userId]">Details</a>
                 </td>
+                <td>
+                    <app-button [buttonText]="'Delete'" [id] = "userItem.userId" (onButtonClick)="handleDeleteButton($event )"></app-button>
+                </td>
+
             </tr>
         </tbody>
     </table>

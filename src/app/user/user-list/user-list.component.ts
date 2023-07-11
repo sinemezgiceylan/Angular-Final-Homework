@@ -52,4 +52,9 @@ export class UserListComponent {
       this.pageIndex++;
     }
   }
+
+  handleDeleteButton($event: Number) {
+    this.userService.deleteUserItem($event);
+    this.userList = this.userService.getUserList();
+  }
 }

@@ -166,4 +166,17 @@ export class UserService {
       return user.userId === userId;
     })
   }
+
+  deleteUserItem(id: Number) : void {
+    this.users = this.users.filter((user) => user.userId !== id);
+  }
+
+  updateUserItem(userItem: User) {
+    this.users = this.users.map(user => {
+      if(user.userId === userItem.userId)
+        user = userItem;
+      return user;
+    })
+  }
 }
+

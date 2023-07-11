@@ -7,14 +7,16 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
 import { FormsModule } from '@angular/forms';
-import { CreateUserComponent } from './user/create-user/create-user.component'
+import { CreateUserComponent } from './user/create-user/create-user.component';
+import { ButtonComponent } from './button/button.component'
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     NavbarComponent,
     UserDetailsComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +24,7 @@ import { CreateUserComponent } from './user/create-user/create-user.component'
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [ButtonComponent]
 })
 export class AppModule { }

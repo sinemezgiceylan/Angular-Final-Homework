@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'user-list', component: UserListComponent},
   {path: 'create-user', component: CreateUserComponent},
   {path: 'user-details/:userId', component: UserDetailsComponent},
+  {path: 'user-details/update', component: UserDetailsComponent}
 
 ];
 

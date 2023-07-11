@@ -29,7 +29,7 @@ export class CreateUserComponent implements AfterViewInit {
 
   handleSaveUserItem() {
     if(this.userItem.username === "" || this.userItem.email === "" || this.userItem.creationDate === "") {
-      alert("Boş alan bırakılamaz")
+      alert("Fill in all sections")
     } else {
       this.userService.addUserItem(this.userItem);
       this.isSuccess = true;
