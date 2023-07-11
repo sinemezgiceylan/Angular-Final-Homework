@@ -8,7 +8,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
 import { FormsModule } from '@angular/forms';
 import { CreateUserComponent } from './user/create-user/create-user.component';
-import { ButtonComponent } from './button/button.component'
+import { ButtonComponent } from './button/button.component';
+import { PostListComponent } from './post/post-list/post-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,9 @@ import { ButtonComponent } from './button/button.component'
     NavbarComponent,
     UserDetailsComponent,
     CreateUserComponent,
-    ButtonComponent
+    ButtonComponent,
+    PostListComponent,
+    
   ],
   imports: [
     BrowserModule,

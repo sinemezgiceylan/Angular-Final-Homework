@@ -1,0 +1,31 @@
+<div class="table-conteiner">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>DETAILS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let postItem of postList | slice: (pageIndex * pageSize) : ((pageIndex * pageSize) + pageSize)">
+                <td> {{ postItem.postId }} </td>
+                <td> {{ postItem.title }} </td>
+                <td>
+                    <a [routerLink]="['/post-details' , postItem.postId]">Details</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div class="pagination-buttons">
+        <button type="button" (click)="handlePreviousPageButton()" 
+        [disabled]="pageIndex === 0">Previous</button>
+
+        <button type="button" (click)="handleNextPageButton()" 
+        [disabled]="pageIndex === totalPage - 1">Next</button>
+    </div>
+</div>
+
+
