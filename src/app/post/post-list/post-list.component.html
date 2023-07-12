@@ -1,9 +1,13 @@
 <div class="table-conteiner">
+    <div>
+        <button type="button" (click)="handleNewPostItemClicked()">Add Post</button>
+    </div>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>TITLE</th>
+                <th>VIEW COUNT</th>
                 <th>DETAILS</th>
             </tr>
         </thead>
@@ -11,8 +15,9 @@
             <tr *ngFor="let postItem of postList | slice: (pageIndex * pageSize) : ((pageIndex * pageSize) + pageSize)">
                 <td> {{ postItem.postId }} </td>
                 <td> {{ postItem.title }} </td>
+                <td> {{ postItem.viewCount }} </td>
                 <td>
-                    <a [routerLink]="['/post-details' , postItem.postId]">Details</a>
+                    <a [routerLink]="['/post-details' , postItem.postId]"> Details </a>
                 </td>
             </tr>
 

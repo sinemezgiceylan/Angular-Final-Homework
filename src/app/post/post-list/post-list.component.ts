@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PostService } from '../post.service';
 import { Post } from '../post';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -17,7 +18,8 @@ export class PostListComponent {
 
   constructor(
 
-    private postService: PostService
+    private postService: PostService,
+    private route : Router
   ) {
     this.postList = this.postService.getPostList();
     this.calculateTotalPage();
@@ -46,5 +48,9 @@ export class PostListComponent {
     if(this.pageIndex < this.totalPage - 1) {
       this.pageIndex++;
     }
+  }
+
+  handleNewPostItemClicked() {
+    this.route.navigateByUrl('/create-post')
   }
 }

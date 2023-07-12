@@ -1,0 +1,29 @@
+<h2>Post Details</h2>
+<hr>
+
+<ul *ngIf="postItem">
+    <li>
+        <strong>POST ID:</strong> {{ postItem.postId }}
+    </li>
+    <li>
+        <strong>USER ID:</strong> {{ postItem.userId }}
+    </li>
+    <li>
+        <strong>CATEGORY ID:</strong> {{ postItem.categoryId }}
+    </li>
+    <li>
+        <strong>TITLE:</strong> {{ postItem.title }}
+    </li>
+    <li>
+        <strong>CONTENT:</strong> {{ postItem.content }}
+    </li>
+    <li>
+        <strong>VIEW COUNT:</strong> {{ postItem.viewCount }}
+    </li>
+    <li>
+        <strong>Creation Date:</strong> {{postItem.creationDate | date: 'dd/MM/yyyy'}}
+    </li>
+    <li>
+        <strong>IS PUBLISHED:</strong> {{ postItem.isPublished }}
+    </li>
+</ul>

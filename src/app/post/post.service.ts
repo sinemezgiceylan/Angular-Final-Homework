@@ -1014,4 +1014,10 @@ export class PostService {
   getPostList() : Post[] {
     return this.posts
   }
+
+  getPostItem(postId: number): Post | undefined {
+    return this.posts.find((post : Post, index: number) => {
+      return post.postId === postId;
+    })
+  }
 }

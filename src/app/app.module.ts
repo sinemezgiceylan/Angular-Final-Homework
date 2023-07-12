@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { ButtonComponent } from './button/button.component';
 import { PostListComponent } from './post/post-list/post-list.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import { PostDetailsComponent } from './post/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { PostListComponent } from './post/post-list/post-list.component';
     CreateUserComponent,
     ButtonComponent,
     PostListComponent,
+    CreatePostComponent,
+    PostDetailsComponent,
     
   ],
   imports: [
