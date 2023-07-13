@@ -19,6 +19,9 @@
                 <td>
                     <a [routerLink]="['/post-details' , postItem.postId]"> Details </a>
                 </td>
+                <td>
+                    <app-button [buttonText]="'Delete'" [id] = "postItem.postId" (onButtonClick)="handleDeleteButton($event)"></app-button>
+                </td>
             </tr>
 
         </tbody>

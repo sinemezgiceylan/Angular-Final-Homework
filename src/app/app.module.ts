@@ -33,6 +33,6 @@ import { PostDetailsComponent } from './post/post-details/post-details.component
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [ButtonComponent]
+  exports: [ButtonComponent,]
 })
 export class AppModule { }

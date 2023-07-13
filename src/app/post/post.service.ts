@@ -1020,4 +1020,14 @@ export class PostService {
       return post.postId === postId;
     })
   }
+
+  deleteUserItem(id: Number) : void {
+    this.posts = this.posts.filter((post) => post.postId !== id);
+  }
+
+  addPostItem(postItem: Post) : void {
+    postItem.postId = this.posts.length + 1;
+    this.posts.push(postItem);
+  }
+
 }

@@ -32,6 +32,9 @@ export class UserDetailsComponent {
     const userId = parseInt(params['userId']);
     this.userId = userId;
     this.userItem = this.userService.getUserItem(userId);
+    if(!this.userItem) {
+      this.router.navigateByUrl('/user-list') ////////////////////////
+    }
   }
 
   handleEditButton() {
@@ -48,6 +51,7 @@ export class UserDetailsComponent {
     }
 
     this.userService.updateUserItem(user)
+    alert("Success")
     this.router.navigateByUrl('/user-list')
 
     

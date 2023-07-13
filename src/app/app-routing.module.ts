@@ -5,6 +5,7 @@ import { UserDetailsComponent } from './user/user-details/user-details.component
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
 
 const routes: Routes = [
   {path: 'user-list', component: UserListComponent},
@@ -12,7 +13,9 @@ const routes: Routes = [
   {path: 'user-details/:userId', component: UserDetailsComponent},
   {path: 'user-details/update', component: UserDetailsComponent},
   {path: 'post-list', component: PostListComponent},
-  {path: 'post-details/:postId', component: PostDetailsComponent}
+  {path: 'create-post', component: CreatePostComponent},
+  {path: 'post-details/:postId', component: PostDetailsComponent},
+  {path: 'post-details/update', component: PostDetailsComponent},
 
 ];
 

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
 import { NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -14,11 +15,9 @@ export class CreateUserComponent implements AfterViewInit {
   userItem!: User;
   isSuccess: boolean = false;
 
-  
- 
-
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {
     this.resetForm();
   }
@@ -29,13 +28,15 @@ export class CreateUserComponent implements AfterViewInit {
 
   handleSaveUserItem() {
     if(this.userItem.username === "" || this.userItem.email === "" || this.userItem.creationDate === "") {
-      alert("Fill in all sections")
+      alert("Fill in all sections!")
     } else {
       this.userService.addUserItem(this.userItem);
       this.isSuccess = true;
       this.resetForm();
     }
-
+  }
+  handleCancelUserItem() {
+    this.router.navigateByUrl('/user-list')
   }
 
   private resetForm() {

@@ -53,4 +53,10 @@ export class PostListComponent {
   handleNewPostItemClicked() {
     this.route.navigateByUrl('/create-post')
   }
+
+  handleDeleteButton($event: Number) {
+    this.postService.deleteUserItem($event);
+    this.postList = this.postService.getPostList();
+  }
+  
 }

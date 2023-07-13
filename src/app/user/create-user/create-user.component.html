@@ -13,10 +13,14 @@
 </div>
 <div>
     <label>User State</label> <br>
-    <input type="isActive" [(ngModel)]="userItem.isActive" required #isActive = "ngModel">
+    <select type="isActive" [(ngModel)]="userItem.isActive" required #isActive = "ngModel">
+        <option value="true">Active</option>
+        <option value="false">Not Active</option>
+    </select>
 </div>
 <div>
-    <button type = "button" (click)="handleSaveUserItem()"> Add New User </button>
+    <button type = "button" (click)="handleSaveUserItem()"> Save </button>
+    <button (click)="handleCancelUserItem()"> Cancel </button>
     <p *ngIf="isSuccess">New user successfully added</p>
 </div>
 
