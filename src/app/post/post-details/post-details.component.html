@@ -9,7 +9,7 @@
         <strong>USER ID:</strong> {{ postItem.userId }}
     </li>
     <li>
-        <strong>USERNAME</strong> {{ userList.username }}
+        <strong>USERNAME</strong> {{ userItem.username }}
     </li>
     <li>
         <strong>CATEGORY ID:</strong> {{ postItem.categoryId }}
@@ -30,3 +30,34 @@
         <strong>IS PUBLISHED:</strong> {{ postItem.isPublished }}
     </li>
 </ul>
+
+<app-button [buttonText]="'edit'" (onButtonClick)="handleEditButton()" ></app-button>
+
+<form *ngIf="edit">
+    <label for="title">TITLE</label>
+    <input type="text" [(ngModel)]="title" name="title"> <br>
+
+    <label for="content">CONTENT</label>
+    <textarea type="text" [(ngModel)]="content" name="content"></textarea> <br>
+
+    <label for="viewCount">VIEW COUNT</label> <br>
+    <input type="number" [(ngModel)]="viewCount" name="viewCount" >
+
+    <label for="creationDate">CREATION DATE</label>
+    <input type="date" [(ngModel)]="creationDate" name="creationDate"> <br>
+
+    <label for="username">USERNAME</label>
+    <select [(ngModel)]="this.userId" name="user">
+        <option *ngFor="let user of userList" [value]="user.userId" >
+            {{ user.username }}
+        </option>
+    </select>
+
+    <label for="isPublished">POST PUBLİSHED</label>
+    <select [(ngModel)]="isPublished" name="isPublished"> <br>
+        <option value="true">Active</option>
+        <option value="false">Not Active</option>
+    </select>
+
+    <button (click)="handleEditSaveButton()">Save</button>
+</form>

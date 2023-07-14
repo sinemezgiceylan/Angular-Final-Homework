@@ -1030,4 +1030,12 @@ export class PostService {
     this.posts.push(postItem);
   }
 
+  updatePostItem(postItem: Post) {
+    this.posts = this.posts.map(post => {
+      if(post.postId === postItem.postId)
+        post = postItem;
+      return post;
+    })
+  }
+
 }

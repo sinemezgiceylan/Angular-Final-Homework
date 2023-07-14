@@ -13,16 +13,21 @@ import { User } from 'src/app/user/user';
 export class PostDetailsComponent {
 
   postList : Post[] = [];
-  userList : User;
+  userList: User[] = [];
+  userItem : User;
+
+  
 
   postItem? : Post;
   postId?: number;
   userId: number = 0;
   categoryId?: number;
   title: string = "";
+  content: string = "";
   viewCount?: number;
   creationDate: string = "";
   isPublished: boolean = false;
+  edit: boolean = false;
 
   constructor(
     private router : Router,
@@ -35,6 +40,28 @@ export class PostDetailsComponent {
     const postId = parseInt(params['postId']);
     this.postId = postId;
     this.postItem = this.postService.getPostItem(postId);
-    this.userList = this.userService.getUserItem(Number(this.postService.getPostItem(postId)!.userId))!;
+    this.userItem = this.userService.getUserItem(Number(this.postService.getPostItem(postId)!.userId))!;
+    this.userList = this.userService.getUserList();
   }
+
+  handleEditButton() {
+    this.edit = true;
+  }
+
+  handleEditSaveButton() {
+    const post: Post = {
+      postId : this.postId!,
+      userId : this.userId!,
+      categoryId: this.categoryId!,
+      title : this.title,
+      content : this.content,
+      viewCount : this.viewCount!,
+      creationDate: this.creationDate,
+      isPublished: this.isPublished
+    }
+
+    this.postService.updatePostItem(post)
+    alert("Success")
+    this.router.navigateByUrl('/post-list')
+}
 }
