@@ -53,8 +53,6 @@ export class UserDetailsComponent {
     this.userService.updateUserItem(user)
     alert("Success")
     this.router.navigateByUrl('/user-list')
-
-    
   }
 
 

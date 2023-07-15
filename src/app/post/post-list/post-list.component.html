@@ -1,3 +1,5 @@
+<app-filter  [filterOptions]="filterOptions" (applyFilterEvent)="applyFilter($event)" (clearFilterEvent)="clearFilter()"></app-filter>
+
 <div class="table-conteiner">
     <div>
         <button type="button" (click)="handleNewPostItemClicked()">Add Post</button>
@@ -27,7 +29,7 @@
         </tbody>
     </table>
 
-    <div class="pagination-buttons">
+    <div>
         <button type="button" (click)="handlePreviousPageButton()" 
         [disabled]="pageIndex === 0">Previous</button>
 
@@ -36,5 +38,7 @@
     </div>
 
 </div>
+
+
 
 

@@ -1,0 +1,26 @@
+<h2>Category Details</h2>
+<hr>
+
+<ul *ngIf="categoryItem">
+    <li>
+        <strong>ID:</strong> {{ categoryItem.categoryId }}
+    </li>
+    <li>
+        <strong>Name:</strong> {{ categoryItem.name }}
+    </li>
+    <li>
+        <strong>Creation Date:</strong> {{ categoryItem.creationDate | date: 'dd/MM/yyyy'}}
+    </li>
+</ul>
+
+<app-button [buttonText]="'edit'" (onButtonClick)="handleEditButton()" ></app-button>
+
+<form *ngIf="edit" >
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="name" name="name"> <br>
+
+    <label for="creationDate">Creation Date</label>
+    <input type="date" [(ngModel)]="creationDate" name="creationDate"> <br>
+
+    <button (click)="handleEditSaveButton()">Save</button>
+</form>

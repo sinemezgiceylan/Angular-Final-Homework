@@ -12,6 +12,10 @@ import { ButtonComponent } from './button/button.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
+import { FilterComponent } from './filter/filter.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { CategoryDetailsComponent } from './category/category-details/category-details.component';
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +28,17 @@ import { PostDetailsComponent } from './post/post-details/post-details.component
     PostListComponent,
     CreatePostComponent,
     PostDetailsComponent,
+    FilterComponent,
+    CategoryListComponent,
+    CategoryDetailsComponent,
+    CreateCategoryComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
