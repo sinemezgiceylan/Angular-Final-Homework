@@ -1,4 +1,34 @@
-# Odev2
+# Blog Managament
+Bu proje __kullanıcı listesi__ , __gönderi listesi__ , __kategori listesi__ ve __yorum listesi__ olmak üzere 4 listeleme sayfasından oluşmaktadır.
+
+### Kullanıcı Listesi
+
+- Yeni kullanıcı eklenir.
+- Var olan kullanıcı düzenlenir.
+- Kullanıcı detay içeriği listelenir.
+- Kullanıcıların gönderisi veya yorumu yoksa kullanıcı silinebilir ancak sistemde kalan son kullanıcı silinemez.
+
+### Gönderi Listesi
+
+- Yeni gönderi eklenir.
+- Var olan gönderi düzenlenir.
+- Gönderi detay içeriği listelenir.
+- Kullanıcı id, gönderi id, kategori id ile filtreleme yapılır.
+- Gönderiye ait yorum yoksa gönderi silinebilir.
+
+### Kategori Listesi
+
+- Yeni kategori eklenir.
+- Var olan kategori düzenlenir.
+- Kategori detay içeriği listelenir.
+- Kategoriye ait gönderi yoksa kategori silinebilir.
+
+### Yorum Listesi
+
+- Yeni yorum eklenir.
+- Var olan yorum düzenlenebilir.
+- Gönderi id ile filtreleme yapılır.
+- Yorum silinebilir.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
 
