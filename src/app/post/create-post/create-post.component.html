@@ -10,7 +10,7 @@
     </div>
     <div>
         <label>VIEW COUNT</label> <br>
-        <input type="text" [(ngModel)]="postItem.viewCount" required #viewCount = "ngModel" >
+        <input type="number" [(ngModel)]="postItem.viewCount" required #viewCount = "ngModel" >
     </div>
     <div>
         <label>CREATION DATE</label> <br>
@@ -22,13 +22,16 @@
             <option value="true">PUBLISHED</option>
             <option value="false">NOT PUBLISHED</option>
         </select> <br>
-    
+    </div>
+    <div>
         <label for="user">USER</label> <br>
         <select [(ngModel)]="postItem.userId" name="user">
             <option *ngFor="let user of userItem" [value]="user.userId" >
                 {{ user.username }}
             </option>
         </select> <br>
+    </div>
+    <div>
         <label for="category">CATAGORY</label> <br>
         <select [(ngModel)]="postItem.categoryId" name="category">
             <option *ngFor="let category of categoryList" [value]="category.categoryId" >

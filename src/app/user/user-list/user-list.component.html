@@ -19,20 +19,20 @@
                 <td>{{ userItem.username}}</td>
                 <td>{{ userItem.isActive}}</td>
                 <td>
-                    <a [routerLink]="['/user-details' , userItem.userId]">Details</a>
+                    <a [routerLink]="['/user-details' , userItem.userId]">DETAILS</a>
                 </td>
                 <td>
-                    <app-button [buttonText]="'Delete'" [id] = "userItem.userId" (onButtonClick)="handleDeleteButton($event)"></app-button>
+                    <app-button class="deleteButton" [buttonText]="'Delete'" [id] = "userItem.userId" (onButtonClick)="handleDeleteButton($event)"></app-button>
                 </td>
             </tr>
         </tbody>
     </table>
     <div class="pagination-buttons">
         <button type="button" (click)="handlePreviousPageButton()" 
-        [disabled]="pageIndex === 0">Previous</button>
+        [disabled]="pageIndex === 0">PREVIOUS</button>
 
         <button type="button" (click)="handleNextPageButton()" 
-        [disabled]="pageIndex === totalPage - 1">Next</button>
+        [disabled]="pageIndex === totalPage - 1">NEXT</button>
     </div>
 </div>
 

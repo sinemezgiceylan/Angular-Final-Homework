@@ -20,6 +20,8 @@ import { CommentListComponent } from './comment/comment-list/comment-list.compon
 import { CommentDetailsComponent } from './comment/comment-details/comment-details.component';
 import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatIconModule
 
   ],
   providers: [],
