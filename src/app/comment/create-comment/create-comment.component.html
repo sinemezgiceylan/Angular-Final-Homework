@@ -1,38 +1,40 @@
-<div>
-    <label>COMMENT</label> <br>
-    <input type="text" [(ngModel)]="commentItem.comment" required #comment = "ngModel" >
-
-</div>
-<div>
-    <label>Creation Date</label> <br>
-    <input type="date" [(ngModel)]="commentItem.creationDate" required #creationDate = "ngModel">
-</div>
-<div>
-    <label>COMMENT CONFIRMED</label> <br>
-    <select type="isActive" [(ngModel)]="commentItem.isConfirmed" required #isConfirmed = "ngModel">
-        <option value="true">CONFIRMED</option>
-        <option value="false">NOT CONFIRMED</option>
-    </select>
-<div>
-    <label for="user">USER</label>
-    <select [(ngModel)]="commentItem.userId" name="user">
-        <option *ngFor="let user of userItem" [value]="user.userId" >
-            {{ user.username }}
-        </option>
-    </select>
-</div>
-<div>
-    <label for="post">POST</label>
-    <select [(ngModel)]="commentItem.postId" name="post">
-        <option *ngFor="let post of postItem" [value]="post.postId" >
-            {{ post.title }}
-        </option>
-    </select>
-</div>
-
-<div>
-<div>
-    <button type = "button" (click)="handleSaveCommentItem()"> Save </button>
-    <button (click)="handleCancelCommentItem()"> Cancel </button>
-    <p *ngIf="isSuccess">New user successfully added</p>
+<div class="conteiner">
+    <div>
+        <label>COMMENT</label> <br>
+        <input type="text" [(ngModel)]="commentItem.comment" required #comment = "ngModel" >
+    
+    </div>
+    <div>
+        <label>CREATION DATE</label> <br>
+        <input type="date" [(ngModel)]="commentItem.creationDate" required #creationDate = "ngModel">
+    </div>
+    <div>
+        <label>COMMENT CONFIRMED</label> <br>
+        <select type="isActive" [(ngModel)]="commentItem.isConfirmed" required #isConfirmed = "ngModel">
+            <option value="true">CONFIRMED</option>
+            <option value="false">NOT CONFIRMED</option>
+        </select>
+    <div>
+        <label for="user">USER</label> <br>
+        <select [(ngModel)]="commentItem.userId" name="user">
+            <option *ngFor="let user of userItem" [value]="user.userId" >
+                {{ user.username }}
+            </option>
+        </select> <br>
+    </div>
+    <div>
+        <label for="post">POST</label> <br>
+        <select [(ngModel)]="commentItem.postId" name="post">
+            <option *ngFor="let post of postItem" [value]="post.postId" >
+                {{ post.title }}
+            </option>
+        </select> <br>
+    </div>
+    
+    <div>
+    <div>
+        <button type = "button" (click)="handleSaveCommentItem()">SAVE</button>
+        <button (click)="handleCancelCommentItem()">CANCEL</button>
+        <p *ngIf="isSuccess">New user successfully added</p>
+    </div>
 </div>

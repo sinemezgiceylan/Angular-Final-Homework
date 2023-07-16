@@ -42,7 +42,7 @@ export class CategoryDetailsComponent {
   // Kategori düzenleme butonu oluşturuldu. Boş alanlar kontrol edildi.
   handleEditSaveButton() {
     if(this.name === "" || this.creationDate === "") {
-      alert("Fill in  all blanks!")
+      alert("Fill in all blanks!")
     } else {
       const category: Category = {
         categoryId : this.categoryId!,

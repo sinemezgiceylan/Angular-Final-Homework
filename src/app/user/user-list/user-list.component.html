@@ -1,7 +1,7 @@
 
 <div class="table-conteiner">
-    <div>
-        <button type="button" (click)="handleNewUserItemClicked()">Add User</button>
+    <div class="addButton">
+        <button type="button" (click)="handleNewUserItemClicked()">ADD USER</button>
     </div>
     <table>
         <thead>
@@ -10,6 +10,7 @@
                 <th>USERNAME</th>
                 <th>IS ACTIVE</th>
                 <th>DETAILS</th>
+                <th>DELETE USER</th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +27,6 @@
             </tr>
         </tbody>
     </table>
-
     <div class="pagination-buttons">
         <button type="button" (click)="handlePreviousPageButton()" 
         [disabled]="pageIndex === 0">Previous</button>

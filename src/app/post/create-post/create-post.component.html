@@ -1,42 +1,45 @@
-<div>
-    <label>Title</label> <br>
-    <input type="text" [(ngModel)]="postItem.title" required #title = "ngModel" >
+<div class="conteiner">
+    <div>
+        <label>TITLE</label> <br>
+        <input type="text" [(ngModel)]="postItem.title" required #title = "ngModel" >
+    
+    </div>
+    <div>
+        <label>CONTENT</label> <br>
+        <textarea [(ngModel)]="postItem.content" required #content = "ngModel" ></textarea>
+    </div>
+    <div>
+        <label>VIEW COUNT</label> <br>
+        <input type="text" [(ngModel)]="postItem.viewCount" required #viewCount = "ngModel" >
+    </div>
+    <div>
+        <label>CREATION DATE</label> <br>
+        <input type="date" [(ngModel)]="postItem.creationDate" required #creationDate = "ngModel">
+    </div>
+    <div>
+        <label>PUBLISHED STATE</label> <br>
+        <select type="isActive" [(ngModel)]="postItem.isPublished" required #isPublished = "ngModel">
+            <option value="true">PUBLISHED</option>
+            <option value="false">NOT PUBLISHED</option>
+        </select> <br>
+    
+        <label for="user">USER</label> <br>
+        <select [(ngModel)]="postItem.userId" name="user">
+            <option *ngFor="let user of userItem" [value]="user.userId" >
+                {{ user.username }}
+            </option>
+        </select> <br>
+        <label for="category">CATAGORY</label> <br>
+        <select [(ngModel)]="postItem.categoryId" name="category">
+            <option *ngFor="let category of categoryList" [value]="category.categoryId" >
+                {{ category.name }}
+            </option>
+        </select>
+    </div>
+    <div>
+        <button type = "button" (click)="handleSavePostItem()"> Save </button>
+        <button (click)="handleCancelPostItem()"> Cancel </button>
+        <p *ngIf="isSuccess">New user successfully added</p>
+    </div>
+</div>
 
-</div>
-<div>
-    <label>Content</label> <br>
-    <textarea [(ngModel)]="postItem.content" required #content = "ngModel" ></textarea>
-</div>
-<div>
-    <label>View Count</label> <br>
-    <input type="text" [(ngModel)]="postItem.viewCount" required #viewCount = "ngModel" >
-</div>
-<div>
-    <label>CREATION DATE</label> <br>
-    <input type="date" [(ngModel)]="postItem.creationDate" required #creationDate = "ngModel">
-</div>
-<div>
-    <label>Publish State</label> <br>
-    <select type="isActive" [(ngModel)]="postItem.isPublished" required #isPublished = "ngModel">
-        <option value="true">Published</option>
-        <option value="false">Not Published</option>
-    </select>
-
-    <label for="user">User</label>
-    <select [(ngModel)]="postItem.userId" name="user">
-        <option *ngFor="let user of userItem" [value]="user.userId" >
-            {{ user.username }}
-        </option>
-    </select>
-    <label for="category">Category</label>
-    <select [(ngModel)]="postItem.categoryId" name="category">
-        <option *ngFor="let category of categoryList" [value]="category.categoryId" >
-            {{ category.name }}
-        </option>
-    </select>
-</div>
-<div>
-    <button type = "button" (click)="handleSavePostItem()"> Save </button>
-    <button (click)="handleCancelPostItem()"> Cancel </button>
-    <p *ngIf="isSuccess">New user successfully added</p>
-</div>

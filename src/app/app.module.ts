@@ -19,6 +19,7 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
 import { CommentListComponent } from './comment/comment-list/comment-list.component';
 import { CommentDetailsComponent } from './comment/comment-details/comment-details.component';
 import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CreateCommentComponent } from './comment/create-comment/create-comment.
     CommentListComponent,
     CommentDetailsComponent,
     CreateCommentComponent,
+    HomeComponent,
     
   ],
   imports: [

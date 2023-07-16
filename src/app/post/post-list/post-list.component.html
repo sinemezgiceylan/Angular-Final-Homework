@@ -1,8 +1,10 @@
-<app-filter  [filterOptions]="filterOptions" (applyFilterEvent)="applyFilter($event)" (clearFilterEvent)="clearFilter()"></app-filter>
+<div class="filter">
+    <app-filter  [filterOptions]="filterOptions" (applyFilterEvent)="applyFilter($event)" (clearFilterEvent)="clearFilter()"></app-filter>
+</div>
 
 <div class="table-conteiner">
-    <div>
-        <button type="button" (click)="handleNewPostItemClicked()">Add Post</button>
+    <div class="addButton">
+        <button type="button" (click)="handleNewPostItemClicked()">ADD POST</button>
     </div>
     <table>
         <thead>
@@ -11,6 +13,7 @@
                 <th>TITLE</th>
                 <th>VIEW COUNT</th>
                 <th>DETAILS</th>
+                <th>DELETE POST</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +22,7 @@
                 <td> {{ postItem.title }} </td>
                 <td> {{ postItem.viewCount }} </td>
                 <td>
-                    <a [routerLink]="['/post-details' , postItem.postId]"> Details </a>
+                    <a [routerLink]="['/post-details' , postItem.postId]"> DETAILS </a>
                 </td>
                 <td>
                     <app-button [buttonText]="'Delete'" [id] = "postItem.postId" (onButtonClick)="handleDeleteButton($event)"></app-button>
@@ -29,7 +32,7 @@
         </tbody>
     </table>
 
-    <div>
+    <div class="pagination-buttons">
         <button type="button" (click)="handlePreviousPageButton()" 
         [disabled]="pageIndex === 0">Previous</button>
 

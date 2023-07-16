@@ -12,8 +12,11 @@ import { CategoryDetailsComponent } from './category/category-details/category-d
 import { CommentListComponent } from './comment/comment-list/comment-list.component';
 import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
 import { CommentDetailsComponent } from './comment/comment-details/comment-details.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'user-list', component: UserListComponent},
   {path: 'create-user', component: CreateUserComponent},
   {path: 'user-details/:userId', component: UserDetailsComponent},

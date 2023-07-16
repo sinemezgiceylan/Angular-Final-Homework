@@ -16,7 +16,7 @@ export class CategoryService {
       },
       {
         categoryId: 2,
-        name: "The Starry Night Over the Rhône",
+        name: "The Starry Night",
         creationDate: "2017-10-27"
       },
       {
@@ -41,7 +41,7 @@ export class CategoryService {
       },
       {
         categoryId: 7,
-        name: "The Persistence of Memory",
+        name: "Memory",
         creationDate: "2021-02-05"
       },
       {
@@ -56,7 +56,7 @@ export class CategoryService {
       },
       {
         categoryId: 10,
-        name: "Starry Night",
+        name: "Art Museum",
         creationDate: "2021-12-02"
       }
     

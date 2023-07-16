@@ -1,12 +1,16 @@
 <div class="table-conteiner">
     <div>
-        <button type="button" (click)="handleNewCategoryItemClicked()">Add Category</button>
+        <div class="addButton">
+            <button class="button" type="button" (click)="handleNewCategoryItemClicked()">ADD CATEGORY</button>
+        </div>
     </div>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>NAME</th>
+                <th>DETAILS</th>
+                <th>DELETE CATEGORY</th>
             </tr>
         </thead>
         <tbody>
@@ -25,9 +29,9 @@
     
     <div class="pagination-buttons">
         <button type="button" (click)="handlePreviousPageButton()" 
-        [disabled]="pageIndex === 0">Previous</button>
+        [disabled]="pageIndex === 0">PREVIOUS</button>
 
         <button type="button" (click)="handleNextPageButton()" 
-        [disabled]="pageIndex === totalPage - 1">Next</button>
+        [disabled]="pageIndex === totalPage - 1">NEXT</button>
     </div>
 </div>

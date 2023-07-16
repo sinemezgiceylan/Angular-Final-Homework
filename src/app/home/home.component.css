@@ -1,0 +1,9 @@
+h1 {
+    text-align: center;
+    margin: 200px;
+    color: var(--primaryColor);
+    background-color:  (--secondaryColor);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 90px;
+}
+

@@ -111,7 +111,7 @@ export class PostListComponent {
   // Filte sıfırlandı.
   clearFilter() {
     this.postList = this.postService.getPostList();
-    this.router.navigate(['/user-list']);
+    this.router.navigate(['/post-list']);
   }
 
   checkComments(id: number) : boolean {

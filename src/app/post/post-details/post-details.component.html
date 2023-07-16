@@ -1,7 +1,7 @@
-<h2>Post Details</h2>
+<h2>POST DETAILS</h2>
 <hr>
 
-<ul *ngIf="postItem">
+<ul class="details" *ngIf="postItem">
     <li>
         <strong>POST ID:</strong> {{ postItem.postId }}
     </li>
@@ -33,40 +33,41 @@
         <strong>IS PUBLISHED:</strong> {{ postItem.isPublished }}
     </li>
 </ul>
+ <div class="edit">
+    <app-button class="editButton" [buttonText]="'EDIT POST'" (onButtonClick)="handleEditButton()" >EDIT POST</app-button>
 
-<app-button [buttonText]="'edit'" (onButtonClick)="handleEditButton()" >Edit</app-button>
-
-<form *ngIf="edit">
-    <label for="title">TITLE</label>
-    <input type="text" [(ngModel)]="title" name="title"> <br>
-
-    <label for="content">CONTENT</label>
-    <textarea type="text" [(ngModel)]="content" name="content"></textarea> <br>
-
-    <label for="viewCount">VIEW COUNT</label> <br>
-    <input type="number" [(ngModel)]="viewCount" name="viewCount" >
-
-    <label for="creationDate">CREATION DATE</label>
-    <input type="date" [(ngModel)]="creationDate" name="creationDate"> <br>
-
-    <label for="username">USERNAME</label>
-    <select [(ngModel)]="this.userId" name="user">
-        <option *ngFor="let user of userList" [value]="user.userId" >
-            {{ user.username }}
-        </option>
-    </select>
-    <label for="category">CATEGORY</label>
-    <select [(ngModel)]="this.categoryId" name="category">
-        <option *ngFor="let category of categoryList" [value]="category.categoryId" >
-            {{ category.name }}
-        </option>
-    </select>
-
-    <label for="isPublished">POST PUBLİSHED</label>
-    <select [(ngModel)]="isPublished" name="isPublished"> <br>
-        <option value="true">Active</option>
-        <option value="false">Not Active</option>
-    </select>
-
-    <button (click)="handleEditSaveButton()">Save</button>
-</form>
+    <form  *ngIf="edit">
+        <label for="title">TITLE</label> <br>
+        <input type="text" [(ngModel)]="title" name="title"> <br>
+    
+        <label for="content">CONTENT</label> <br>
+        <textarea type="text" [(ngModel)]="content" name="content"></textarea> <br>
+    
+        <label for="viewCount">VIEW COUNT</label> <br>
+        <input type="number" [(ngModel)]="viewCount" name="viewCount" > <br>
+    
+        <label for="creationDate">CREATION DATE</label> <br>
+        <input type="date" [(ngModel)]="creationDate" name="creationDate"> <br>
+    
+        <label for="username">USERNAME</label> <br>
+        <select [(ngModel)]="this.userId" name="user">
+            <option *ngFor="let user of userList" [value]="user.userId" >
+                {{ user.username }}
+            </option>
+        </select> <br>
+        <label for="category">CATEGORY</label> <br>
+        <select [(ngModel)]="this.categoryId" name="category">
+            <option *ngFor="let category of categoryList" [value]="category.categoryId" >
+                {{ category.name }}
+            </option>
+        </select> <br>
+    
+        <label for="isPublished">POST PUBLİSHED</label> <br>
+        <select [(ngModel)]="isPublished" name="isPublished"> <br>
+            <option value="true">ACTIVE</option>
+            <option value="false">NOT ACTIVE</option>
+        </select> <br>
+    
+        <button (click)="handleEditSaveButton()">SAVE</button>
+    </form>
+ </div>

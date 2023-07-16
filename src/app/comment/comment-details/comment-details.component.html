@@ -1,61 +1,66 @@
-<h2>Comment Details</h2>
+<h2>COMMENT DETAILS</h2>
 <hr>
 
-<ul *ngIf="commentItem">
-    <li>
-        <strong>COMMENT ID:</strong> {{ commentItem.commentId }}
-    </li>
-    <li>
-        <strong>POST ID:</strong> {{ commentItem.postId }}
-    </li>
-    <li>
-        <strong>POST:</strong> {{ commentItem.postId }}
-    </li>
-    <li>
-        <strong>USER ID:</strong> {{ commentItem.userId }}
-    </li>
-    <li>
-        <strong>USERNAME:</strong> {{ userItem.username }}
-    </li>
-    <li>
-        <strong>COMMENT:</strong> {{ commentItem.comment }}
-    </li>
-    <li>
-        <strong>CREATION DATE:</strong> {{commentItem.creationDate | date: 'dd/MM/yyyy'}}
-    </li>
-    <li>
-        <strong>IS CONFIRMED:</strong> {{ commentItem.isConfirmed }}
-    </li>
-</ul>
+<div class="details">
+    <ul *ngIf="commentItem">
+        <li>
+            <strong>COMMENT ID:</strong> {{ commentItem.commentId }}
+        </li>
+        <li>
+            <strong>POST ID:</strong> {{ commentItem.postId }}
+        </li>
+        <li>
+            <strong>POST:</strong> {{ commentItem.postId }}
+        </li>
+        <li>
+            <strong>USER ID:</strong> {{ commentItem.userId }}
+        </li>
+        <li>
+            <strong>USERNAME:</strong> {{ userItem.username }}
+        </li>
+        <li>
+            <strong>COMMENT:</strong> {{ commentItem.comment }}
+        </li>
+        <li>
+            <strong>CREATION DATE:</strong> {{commentItem.creationDate | date: 'dd/MM/yyyy'}}
+        </li>
+        <li>
+            <strong>IS CONFIRMED:</strong> {{ commentItem.isConfirmed }}
+        </li>
+    </ul>
+</div>
 
-<app-button [buttonText]="'edit'" (onButtonClick)="handleEditButton()" >Edit</app-button>
+<div class="edit">
+    <app-button class="editButton" [buttonText]="'EDIT COMMENT'" (onButtonClick)="handleEditButton()" >EDIT COMMENT</app-button>
 
 <form *ngIf="edit">
-    <label for="comment">COMMENT</label>
+    <label for="comment">COMMENT</label> <br>
     <input type="text" [(ngModel)]="comment" name="comment"> <br>
 
-    <label for="creationDate">CREATION DATE</label>
+    <label for="creationDate">CREATION DATE</label> <br>
     <input type="date" [(ngModel)]="creationDate" name="creationDate"> <br>
 
-    <label for="username">USERNAME</label>
-    <select [(ngModel)]="this.userId" name="user">
+    <label for="username">USERNAME</label> <br>
+    <select [(ngModel)]="this.userId" name="user"> 
         <option *ngFor="let userItem of userList" [value]="userItem.userId" >
             {{ userItem.username }}
         </option>
-    </select>
+    </select> <br>
 
-    <label for="title">POST</label>
+    <label for="title">POST</label> <br>
     <select [(ngModel)]="this.postId" name="post">
         <option *ngFor="let postItem of postList" [value]="postItem.postId" >
             {{ postItem.title }}
         </option>
-    </select>
+    </select> <br>
 
-    <label for="isConfirmed">COMMENT CONFIRMED</label>
-    <select [(ngModel)]="isConfirmed" name="isConfirmed"> <br>
-        <option value="true">Confirmed</option>
-        <option value="false">Not Confirmed</option>
-    </select>
+    <label for="isConfirmed">COMMENT CONFIRMED</label> <br>
+    <select [(ngModel)]="isConfirmed" name="isConfirmed"> 
+        <option value="true">CONFIRMED</option>
+        <option value="false">NOT CONFIRMED</option>
+    </select> <br>
 
-    <button (click)="handleEditSaveButton()">Save</button>
+    <button (click)="handleEditSaveButton()">SAVE</button>
 </form>
+</div>
+

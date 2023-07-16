@@ -1,41 +1,46 @@
 <h2>User Details</h2>
 <hr>
+<div class="details">
+    <ul *ngIf="userItem">
+        <li>
+            <strong>ID:</strong> {{ userItem.userId }}
+        </li>
+        <li>
+            <strong>USERNAME:</strong> {{ userItem.username }}
+        </li>
+        <li>
+            <strong>EMAIL:</strong> {{ userItem.email }}
+        </li>
+        <li>
+            <strong>CREATION DATE:</strong> {{ userItem.creationDate | date: 'dd/MM/yyyy'}}
+        </li>
+        <li>
+            <strong>USER ACTIVATION:</strong> {{ userItem.isActive }}
+        </li>
+    </ul>
+</div>
 
-<ul *ngIf="userItem">
-    <li>
-        <strong>ID:</strong> {{ userItem.userId }}
-    </li>
-    <li>
-        <strong>Username:</strong> {{ userItem.username }}
-    </li>
-    <li>
-        <strong>Email:</strong> {{ userItem.email }}
-    </li>
-    <li>
-        <strong>Creation Date:</strong> {{ userItem.creationDate | date: 'dd/MM/yyyy'}}
-    </li>
-    <li>
-        <strong>Is Active:</strong> {{ userItem.isActive }}
-    </li>
-</ul>
 
-<app-button [buttonText]="'edit'" (onButtonClick)="handleEditButton()" ></app-button>
+<div class="edit">
+    <app-button class="editButton" [buttonText]="'EDIT USER'" (onButtonClick)="handleEditButton()" >EDIT</app-button>
 
-<form *ngIf="edit" >
-    <label for="username">Username</label>
-    <input type="text" [(ngModel)]="username" name="username"> <br>
+    <form *ngIf="edit" >
+        <label for="username">USERNAME</label> <br>
+        <input type="text" [(ngModel)]="username" name="username"> <br>
+    
+        <label for="email">EMAIL</label> <br>
+        <input type="email" [(ngModel)]="email" name="email"> <br>
+    
+        <label for="creationDate">CREATION DATE</label> <br>
+        <input type="date" [(ngModel)]="creationDate" name="creationDate"> <br>
+    
+        <label for="isActive">USER ACTIVATION</label> <br>
+        <select [(ngModel)]="isActive" name="isActive"> <br>
+            <option value="true">ACTIVE</option>
+            <option value="false">NOT ACTIVE</option>
+        </select> <br>
+        <button (click)="handleEditSaveButton()">SAVE</button>
+    </form>
+</div>
 
-    <label for="email">Email</label>
-    <input type="email" [(ngModel)]="email" name="email"> <br>
-
-    <label for="creationDate">Creation Date</label>
-    <input type="date" [(ngModel)]="creationDate" name="creationDate"> <br>
-
-    <label for="isActive">User Activation</label>
-    <select [(ngModel)]="isActive" name="isActive"> <br>
-        <option value="true">Active</option>
-        <option value="false">Not Active</option>
-    </select>
-    <button (click)="handleEditSaveButton()">Save</button>
-</form>
 

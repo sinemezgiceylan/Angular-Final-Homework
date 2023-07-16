@@ -1,28 +1,31 @@
-<div>
-    <label>Username</label> <br>
-    <input type="text" [(ngModel)]="userItem.username" required #username = "ngModel" >
+<div class="conteiner">
+    <div>
+        <label>USERNAME</label> <br>
+        <input type="text" [(ngModel)]="userItem.username" required #username = "ngModel" >
+    
+    </div>
+    <div>
+        <label>EMAIL</label> <br>
+        <input type="email" [(ngModel)]="userItem.email" required #email = "ngModel">
+    </div>
+    <div>
+        <label>CREATION DATE</label> <br>
+        <input type="date" [(ngModel)]="userItem.creationDate" required #creationDate = "ngModel">
+    </div>
+    <div>
+        <label>USER STATE</label> <br>
+        <select type="isActive" [(ngModel)]="userItem.isActive" required #isActive = "ngModel">
+            <option value="true">Active</option>
+            <option value="false">Not Active</option>
+        </select>
+    </div>
+    <div>
+        <button type = "button" (click)="handleSaveUserItem()"> SAVE </button>
+        <button (click)="handleCancelUserItem()"> CANCEL </button>
+        <p *ngIf="isSuccess">New user successfully added!</p>
+    </div>
+</div>
 
-</div>
-<div>
-    <label>Email</label> <br>
-    <input type="email" [(ngModel)]="userItem.email" required #email = "ngModel">
-</div>
-<div>
-    <label>Creation Date</label> <br>
-    <input type="date" [(ngModel)]="userItem.creationDate" required #creationDate = "ngModel">
-</div>
-<div>
-    <label>User State</label> <br>
-    <select type="isActive" [(ngModel)]="userItem.isActive" required #isActive = "ngModel">
-        <option value="true">Active</option>
-        <option value="false">Not Active</option>
-    </select>
-</div>
-<div>
-    <button type = "button" (click)="handleSaveUserItem()"> Save </button>
-    <button (click)="handleCancelUserItem()"> Cancel </button>
-    <p *ngIf="isSuccess">New user successfully added</p>
-</div>
 
 
 

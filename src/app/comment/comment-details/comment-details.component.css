@@ -1,0 +1,48 @@
+h2 {
+    background-color: var(--secondaryColor);
+    color: var(--aliceblueColor);
+    text-align: center;
+}
+
+.details {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px;
+    border:20px;
+    background-color: var(--primaryColor);
+    color: var(--aliceblueColor);
+}
+
+li {
+    margin: 20px;
+}
+
+button {
+    background-color: var(--primaryColor);
+    border: none;
+    border-radius: 7px;
+    color: var(--aliceblueColor);
+    font-size: small;
+    padding: 5px;
+    
+}
+
+.edit {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px;
+    gap: 20px;
+}
+
+.editButton {
+    background-color: var(--primaryColor);
+    border: none;
+    border-radius: 7px;
+    color: var(--aliceblueColor);
+    font-size: medium;
+    padding: 5px;
+}

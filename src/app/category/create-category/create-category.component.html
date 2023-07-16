@@ -1,14 +1,18 @@
-<div>
-    <label>Name</label> <br>
-    <input type="text" [(ngModel)]="categoryItem.name" required #name = "ngModel" >
+<div class="conteiner">
+    <div>
+        <label>NAME</label> <br>
+        <input type="text" [(ngModel)]="categoryItem.name" required #name = "ngModel" >
+    
+    </div>
+    <div>
+        <label>CREATION DATE</label> <br>
+        <input type="date" [(ngModel)]="categoryItem.creationDate" required #creationDate = "ngModel">
+    </div>
+    <div>
+        <button type = "button" (click)="handleSaveCategoryItem()"> SAVE </button>
+        <button (click)="handleCancelCategoryItem()"> CANCEL </button>
+        <p *ngIf="isSuccess">New category successfully added</p>
+    </div>
+</div>
 
-</div>
-<div>
-    <label>Creation Date</label> <br>
-    <input type="date" [(ngModel)]="categoryItem.creationDate" required #creationDate = "ngModel">
-</div>
-<div>
-    <button type = "button" (click)="handleSaveCategoryItem()"> Save </button>
-    <button (click)="handleCancelCategoryItem()"> Cancel </button>
-    <p *ngIf="isSuccess">New category successfully added</p>
-</div>
+
