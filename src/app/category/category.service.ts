@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Category } from './category';
+import { PostService } from '../post/post.service';
 
 @Injectable({
   providedIn: 'root'
@@ -61,14 +62,16 @@ export class CategoryService {
     
   ]
 
-  constructor() { }
+  constructor(
+    private postService: PostService
+  ) { }
 
   getCategoryList() : Category[] {
     return this.categories;
   }
 
   addCategoryItem(categoryItem: Category) : void {
-    categoryItem.categoryId = this.categories.length + 1;
+    categoryItem.categoryId = this.categories[this.categories.length - 1].categoryId + 1;
     this.categories.push(categoryItem);
   }
 
@@ -79,7 +82,14 @@ export class CategoryService {
   }
 
   deleteCategoryItem(id: Number) : void {
-    this.categories = this.categories.filter((category) => category.categoryId !== id);
+    if(this.postService.getPostList().length === 0)
+      this.postService.getPostList();
+    if(this.postService.getPostList().filter(post => Number(post.categoryId) === Number(id)).length > 0)
+      alert("You can not delete a category with posts");
+    else {
+      this.categories = this.categories.filter((category) => category.categoryId !== id);
+    }
+
   }
 
   updateCategoryItem(categoryItem: Category) {

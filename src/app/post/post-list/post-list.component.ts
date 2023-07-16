@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PostService } from '../post.service';
 import { Post } from '../post';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { CommentService } from 'src/app/comment/comment.service';
 
 @Component({
   selector: 'app-post-list',
@@ -30,12 +31,14 @@ export class PostListComponent {
 
     private postService: PostService,
     private route : ActivatedRoute,
+    private commentService: CommentService,
     private router : Router
   ) {
     this.postList = this.postService.getPostList();
     this.calculateTotalPage();
   }
-
+ 
+  // Toplam sayfa kontrolü yapıldı.
   private calculateTotalPage() {
     let totalPage = this.postList.length / this.pageSize;
 
@@ -46,30 +49,36 @@ export class PostListComponent {
     }
     this.totalPage = totalPage;
   }
-
+  // Bir önceki sayfaya geçiş kontrolü yapıldı.
   handlePreviousPageButton() {
     if(this.pageIndex > 0) {
       this.pageIndex--;
     }
     
   }
-
+  // Bir sonraki sayfaya geçiş kontrolü yapıldı.
   handleNextPageButton() {
 
     if(this.pageIndex < this.totalPage - 1) {
       this.pageIndex++;
     }
   }
-
+  // Yeni post ekleme ekranı butonu oluşturuldu.
   handleNewPostItemClicked() {
     this.router.navigateByUrl('/create-post')
   }
 
-  handleDeleteButton($event: Number) {
-    this.postService.deleteUserItem($event);
-    this.postList = this.postService.getPostList();
-  }
+  // Post silme ve posta ait yorum kontrolü yapıldı.
+  handleDeleteButton($event: number) {
+    if(this.checkComments($event) === true)
+    alert("You can not delete a post with comment")
+    else {
+      this.postService.deletePostItem($event);
+      this.postList = this.postService.getPostList();
+    }
 
+  }
+ // Filtre eklendi.
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
       const postId = params['postId'];
@@ -99,10 +108,18 @@ export class PostListComponent {
     }
 
   }
-
+  // Filte sıfırlandı.
   clearFilter() {
     this.postList = this.postService.getPostList();
     this.router.navigate(['/user-list']);
+  }
+
+  checkComments(id: number) : boolean {
+    if(this.commentService.getCommentList().filter((comment) => comment.userId === id).length !== 0)
+      return true;
+    else {
+      return false;
+    }
   }
   
 }

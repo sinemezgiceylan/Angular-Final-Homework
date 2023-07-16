@@ -24,6 +24,7 @@ export class CreateCategoryComponent {
     
   }
 
+  // Yeni kategori ekleme butonu oluşturuldu. Boş alan kontrolü yapıldı.
   handleSaveCategoryItem() {
     if(this.categoryItem.name === "" || this.categoryItem.creationDate === "") {
       alert("Fill in all sections!")
@@ -37,6 +38,7 @@ export class CreateCategoryComponent {
     this.router.navigateByUrl('/category-list')
   }
 
+  // Form sıfırlandı.
   private resetForm() {
     this.categoryItem = {
       categoryId: 0,

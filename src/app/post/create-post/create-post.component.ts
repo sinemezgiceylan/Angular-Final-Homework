@@ -5,6 +5,8 @@ import { NgModel } from '@angular/forms';
 import { UserService } from 'src/app/user/user.service';
 import { User } from 'src/app/user/user';
 import { Router } from '@angular/router';
+import { Category } from 'src/app/category/category';
+import { CategoryService } from 'src/app/category/category.service';
 
 @Component({
   selector: 'app-create-post',
@@ -17,23 +19,27 @@ export class CreatePostComponent implements AfterViewInit {
   postItem!: Post;
   isSuccess: boolean = false;
   userItem: User[] = [];
+  categoryList: Category[] = [];
 
   constructor(
 
     private postService: PostService,
     private userService: UserService,
+    private categoryService: CategoryService,
     private router: Router
   ){
     this.resetForm();
     this.userItem = this.userService.getUserList();
+    this.categoryList = this.categoryService.getCategoryList();
   }
 
   ngAfterViewInit(): void {
     
   }
 
+  // Yeni post ekleme ve boş alan kotrolü yapıldı.
   handleSavePostItem() {
-    if(this.postItem.title === "" || this.postItem.content === "" || this.postItem.creationDate === "") {
+    if(this.postItem.userId === 0 || this.postItem.title === "" || this.postItem.content === "" || this.postItem.creationDate === "") {
       alert("Fill in all sections!")
     } else {
       this.postService.addPostItem(this.postItem);
@@ -46,6 +52,7 @@ export class CreatePostComponent implements AfterViewInit {
     this.router.navigateByUrl('/post-list')
   }
 
+  // Post ekleme ekranı resetleme kontrolü yapıldı.
   private resetForm() {
     this.postItem = {
       userId: 0,

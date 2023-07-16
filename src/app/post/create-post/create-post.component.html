@@ -28,6 +28,12 @@
             {{ user.username }}
         </option>
     </select>
+    <label for="category">Category</label>
+    <select [(ngModel)]="postItem.categoryId" name="category">
+        <option *ngFor="let category of categoryList" [value]="category.categoryId" >
+            {{ category.name }}
+        </option>
+    </select>
 </div>
 <div>
     <button type = "button" (click)="handleSavePostItem()"> Save </button>

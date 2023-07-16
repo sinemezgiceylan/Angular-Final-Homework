@@ -31,7 +31,7 @@ export class CategoryDetailsComponent {
     this.categoryId = categoryId;
     this.categoryItem = this.categoryService.getCategoryItem(categoryId);
     if(!this.categoryId) {
-      this.router.navigateByUrl('/category-list') ////////////////////////
+      this.router.navigateByUrl('/category-list')
     }
   }
 
@@ -39,15 +39,21 @@ export class CategoryDetailsComponent {
     this.edit = true;
   }
 
+  // Kategori düzenleme butonu oluşturuldu. Boş alanlar kontrol edildi.
   handleEditSaveButton() {
-    const category: Category = {
-      categoryId : this.categoryId!,
-      name : this.name,
-      creationDate: this.creationDate,
+    if(this.name === "" || this.creationDate === "") {
+      alert("Fill in  all blanks!")
+    } else {
+      const category: Category = {
+        categoryId : this.categoryId!,
+        name : this.name,
+        creationDate: this.creationDate,
+      }
+  
+      this.categoryService.updateCategoryItem(category)
+      alert("Success")
+      this.router.navigateByUrl('/category-list')
     }
 
-    this.categoryService.updateCategoryItem(category)
-    alert("Success")
-    this.router.navigateByUrl('/category-list')
   }
 }

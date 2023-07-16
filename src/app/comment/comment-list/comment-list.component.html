@@ -1,0 +1,37 @@
+<app-filter  [filterOptions]="filterOptions" (applyFilterEvent)="applyFilter($event)" (clearFilterEvent)="clearFilter()"></app-filter>
+
+<div class="table-conteiner">
+    <div>
+        <button type="button" (click)="handleNewCommentItemClicked()">Add Comment</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>COMMENT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let commentItem of commentList | slice: (pageIndex * pageSize) : ((pageIndex * pageSize) + pageSize)">
+                <td> {{ commentItem.commentId }} </td>
+                <td> {{ commentItem.comment }} </td>
+                <td>
+                    <a [routerLink]="['/comment-details' , commentItem.commentId]"> Details </a>
+                </td>
+                <td>
+                    <app-button [buttonText]="'Delete'" [id] = "commentItem.commentId" (onButtonClick)="handleDeleteButton($event)"></app-button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div>
+        <button type="button" (click)="handlePreviousPageButton()" 
+        [disabled]="pageIndex === 0">Previous</button>
+
+        <button type="button" (click)="handleNextPageButton()" 
+        [disabled]="pageIndex === totalPage - 1">Next</button>
+    </div>
+
+</div>

@@ -8,10 +8,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ButtonComponent {
 
   @Input() buttonText: String = "";
-  @Input() id: Number = 0;
-  @Output() onButtonClick = new EventEmitter<Number>();
+  @Input() id: number = 0;
+  @Output() onButtonClick = new EventEmitter<number>();
 
-  handleButtonClicked(id: Number) {
+  handleButtonClicked(id: number) {
     this.onButtonClick.emit(id);
   }
 }

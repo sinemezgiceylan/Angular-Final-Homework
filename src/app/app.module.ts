@@ -16,6 +16,9 @@ import { FilterComponent } from './filter/filter.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { CategoryDetailsComponent } from './category/category-details/category-details.component';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import { CommentListComponent } from './comment/comment-list/comment-list.component';
+import { CommentDetailsComponent } from './comment/comment-details/comment-details.component';
+import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
     CategoryListComponent,
     CategoryDetailsComponent,
     CreateCategoryComponent,
+    CommentListComponent,
+    CommentDetailsComponent,
+    CreateCommentComponent,
     
   ],
   imports: [

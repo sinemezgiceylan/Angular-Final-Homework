@@ -24,7 +24,7 @@ export class CategoryListComponent {
     this.calculateTotalPage();
   }
 
-
+  // Toplam sayfa sayısı kontrol edildi.
   private calculateTotalPage() {
     let totalPage = this.categoryList.length / this.pageSize;
 
@@ -40,13 +40,14 @@ export class CategoryListComponent {
     this.route.navigateByUrl('/create-category')
   }
 
+  // Bir önceki sayfaya geçiş butonu oluşturuldu.
   handlePreviousPageButton() {
     if(this.pageIndex > 0) {
       this.pageIndex--;
     }
     
   }
-
+  // Bir sonraki sayfaya geçiş butonu oluşturuldu.
   handleNextPageButton() {
 
     if(this.pageIndex < this.totalPage - 1) {
@@ -54,6 +55,7 @@ export class CategoryListComponent {
     }
   }
 
+  // Kategori silme butonu oluşturuldu.
   handleDeleteButton($event: Number) {
     this.categoryService.deleteCategoryItem($event);
     this.categoryList = this.categoryService.getCategoryList();

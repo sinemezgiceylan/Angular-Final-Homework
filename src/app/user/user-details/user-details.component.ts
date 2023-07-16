@@ -33,7 +33,7 @@ export class UserDetailsComponent {
     this.userId = userId;
     this.userItem = this.userService.getUserItem(userId);
     if(!this.userItem) {
-      this.router.navigateByUrl('/user-list') ////////////////////////
+      this.router.navigateByUrl('/user-list')
     }
   }
 
@@ -41,19 +41,23 @@ export class UserDetailsComponent {
     this.edit = true;
   }
 
+  // Düzenleme yapılırken boş alan kontrolü yapıldı.
   handleEditSaveButton() {
-    const user: User = {
-      userId : this.userId!,
-      username : this.username,
-      email : this.email,
-      creationDate: this.creationDate,
-      isActive: this.isActive
+    if(this.username === "" || this.email === "" || this.creationDate === "") {
+      alert("Fill in all blanks!")
+    } else {
+      const user: User = {
+        userId : this.userId!,
+        username : this.username,
+        email : this.email,
+        creationDate: this.creationDate,
+        isActive: this.isActive
+      }
+  
+      this.userService.updateUserItem(user)
+      alert("Success")
+      this.router.navigateByUrl('/user-list')
     }
-
-    this.userService.updateUserItem(user)
-    alert("Success")
-    this.router.navigateByUrl('/user-list')
-  }
-
+    }
 
 }

@@ -1,0 +1,61 @@
+<h2>Comment Details</h2>
+<hr>
+
+<ul *ngIf="commentItem">
+    <li>
+        <strong>COMMENT ID:</strong> {{ commentItem.commentId }}
+    </li>
+    <li>
+        <strong>POST ID:</strong> {{ commentItem.postId }}
+    </li>
+    <li>
+        <strong>POST:</strong> {{ commentItem.postId }}
+    </li>
+    <li>
+        <strong>USER ID:</strong> {{ commentItem.userId }}
+    </li>
+    <li>
+        <strong>USERNAME:</strong> {{ userItem.username }}
+    </li>
+    <li>
+        <strong>COMMENT:</strong> {{ commentItem.comment }}
+    </li>
+    <li>
+        <strong>CREATION DATE:</strong> {{commentItem.creationDate | date: 'dd/MM/yyyy'}}
+    </li>
+    <li>
+        <strong>IS CONFIRMED:</strong> {{ commentItem.isConfirmed }}
+    </li>
+</ul>
+
+<app-button [buttonText]="'edit'" (onButtonClick)="handleEditButton()" >Edit</app-button>
+
+<form *ngIf="edit">
+    <label for="comment">COMMENT</label>
+    <input type="text" [(ngModel)]="comment" name="comment"> <br>
+
+    <label for="creationDate">CREATION DATE</label>
+    <input type="date" [(ngModel)]="creationDate" name="creationDate"> <br>
+
+    <label for="username">USERNAME</label>
+    <select [(ngModel)]="this.userId" name="user">
+        <option *ngFor="let userItem of userList" [value]="userItem.userId" >
+            {{ userItem.username }}
+        </option>
+    </select>
+
+    <label for="title">POST</label>
+    <select [(ngModel)]="this.postId" name="post">
+        <option *ngFor="let postItem of postList" [value]="postItem.postId" >
+            {{ postItem.title }}
+        </option>
+    </select>
+
+    <label for="isConfirmed">COMMENT CONFIRMED</label>
+    <select [(ngModel)]="isConfirmed" name="isConfirmed"> <br>
+        <option value="true">Confirmed</option>
+        <option value="false">Not Confirmed</option>
+    </select>
+
+    <button (click)="handleEditSaveButton()">Save</button>
+</form>

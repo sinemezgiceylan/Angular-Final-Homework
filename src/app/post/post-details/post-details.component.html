@@ -15,6 +15,9 @@
         <strong>CATEGORY ID:</strong> {{ postItem.categoryId }}
     </li>
     <li>
+        <strong>CATEGORY NAME</strong> {{ categoryItem.name }}
+    </li>
+    <li>
         <strong>TITLE:</strong> {{ postItem.title }}
     </li>
     <li>
@@ -24,14 +27,14 @@
         <strong>VIEW COUNT:</strong> {{ postItem.viewCount }}
     </li>
     <li>
-        <strong>Creation Date:</strong> {{postItem.creationDate | date: 'dd/MM/yyyy'}}
+        <strong>CREATION DATE:</strong> {{postItem.creationDate | date: 'dd/MM/yyyy'}}
     </li>
     <li>
         <strong>IS PUBLISHED:</strong> {{ postItem.isPublished }}
     </li>
 </ul>
 
-<app-button [buttonText]="'edit'" (onButtonClick)="handleEditButton()" ></app-button>
+<app-button [buttonText]="'edit'" (onButtonClick)="handleEditButton()" >Edit</app-button>
 
 <form *ngIf="edit">
     <label for="title">TITLE</label>
@@ -50,6 +53,12 @@
     <select [(ngModel)]="this.userId" name="user">
         <option *ngFor="let user of userList" [value]="user.userId" >
             {{ user.username }}
+        </option>
+    </select>
+    <label for="category">CATEGORY</label>
+    <select [(ngModel)]="this.categoryId" name="category">
+        <option *ngFor="let category of categoryList" [value]="category.categoryId" >
+            {{ category.name }}
         </option>
     </select>
 

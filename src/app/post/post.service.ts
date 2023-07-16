@@ -1021,12 +1021,13 @@ export class PostService {
     })
   }
 
-  deleteUserItem(id: Number) : void {
+  // Post silme kontrolü yapıldı.
+  deletePostItem(id: number) : void {
     this.posts = this.posts.filter((post) => post.postId !== id);
   }
-
+  // Yeni post ekleme kontrolü yapıldı.
   addPostItem(postItem: Post) : void {
-    postItem.postId = this.posts.length + 1;
+    postItem.postId = this.posts[this.posts.length - 1].postId + 1;
     this.posts.push(postItem);
   }
 

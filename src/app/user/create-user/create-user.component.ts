@@ -26,6 +26,7 @@ export class CreateUserComponent implements AfterViewInit {
     
   }
 
+  // Yeni kullanıcı ekleme ve boş alan kotrolü yapıldı.
   handleSaveUserItem() {
     if(this.userItem.username === "" || this.userItem.email === "" || this.userItem.creationDate === "") {
       alert("Fill in all sections!")
@@ -35,10 +36,12 @@ export class CreateUserComponent implements AfterViewInit {
       this.resetForm();
     }
   }
+  // Çıkış kontrolü eklendi.
   handleCancelUserItem() {
     this.router.navigateByUrl('/user-list')
   }
 
+  // Kullanı ekleme ekranı resetleme kontrolü yapıldı.
   private resetForm() {
     this.userItem = {
       userId: 0,

@@ -1,0 +1,27 @@
+.table-conteiner {
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+}
+
+table thead th {
+    text-align: center;
+    border: 1px solid #ccc;
+
+}
+
+table tbody td {
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.pagination-buttons {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.pagination-buttons button {
+    margin: 0 5px;
+}

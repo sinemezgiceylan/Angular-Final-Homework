@@ -156,8 +156,9 @@ export class UserService {
     return this.users;
   }
 
+  // Son id'ye göre yeni kullanıcı eklendi.
   addUserItem(userItem: User) : void {
-    userItem.userId = this.users.length + 1;
+    userItem.userId = this.users[this.users.length - 1].userId + 1;
     this.users.push(userItem);
   }
 
@@ -167,7 +168,8 @@ export class UserService {
     })
   }
 
-  deleteUserItem(id: Number) : void {
+  //Kullanıcı silme kontrolü yapıldı.
+  deleteUserItem(id: number) : void {
     this.users = this.users.filter((user) => user.userId !== id);
   }
 
